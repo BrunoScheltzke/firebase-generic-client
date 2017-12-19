@@ -12,14 +12,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let bruno = Person(name: "Bruno", lastName: "Scheltzke")
+        let brunoDict = bruno.toDictionary()
+        let brunoMadeFromDict = Person.make(from: brunoDict)
+        
+        print(bruno)
+        print(brunoDict)
+        print(brunoMadeFromDict)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
-

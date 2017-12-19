@@ -1,0 +1,35 @@
+{% for type in types.implementing.FirebaseFetchable %}
+struct {{ type.name }}Keys {
+	static let tableName = "{{ type.name }}"
+	static let firebaseId = "firebaseId"
+	{% for variable in type.variables %}
+	{% ifnot variable.annotations.ignore %}
+	static let {{ variable.name }} = "{{ variable.name }}"
+	{% endif %}	
+	{% endfor %}
+}
+
+extension {{ type.name }}: Makeable {
+	func toDictionary() -> [String: Any] {
+		var dict: [String: Any] = [:]
+		{% for variable in type.variables %}
+		{% ifnot variable.annotations.ignore %}
+		dict[{{ type.name }}Keys.{{ variable.name }}] = {{ variable.name }}
+		{% endif %}	
+		{% endfor %}
+		dict[{{ type.name }}Keys.firebaseId] = self.firebaseId
+		return dict
+	}
+
+	static func make(from dictionary: [String: Any]) -> {{ type.name }} {
+		var object = self.init()
+		object.firebaseId = dictionary[{{ type.name }}Keys.firebaseId] as? String
+		{% for variable in type.variables %}
+		{% ifnot variable.annotations.ignore %}
+		object.{{ variable.name }} = dictionary[{{ type.name }}Keys.{{ variable.name }}] as! {{ variable.typeName }}
+		{% endif %}	
+		{% endfor %}
+		return object
+	}
+}
+{% endfor %}
