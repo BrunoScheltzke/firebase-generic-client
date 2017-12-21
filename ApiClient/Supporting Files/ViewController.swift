@@ -20,5 +20,15 @@ class ViewController: UIViewController {
         print(bruno)
         print(brunoDict)
         print(brunoMadeFromDict)
+        
+        PersonManager.shared.save(bruno) { (result) in
+            if case .success(_) = result {
+                PersonManager.shared.fetch(byId: bruno.firebaseId, completion: { (result) in
+                    if case .success(let personFetched) = result {
+                        print(personFetched.name)
+                    }
+                })
+            }
+        }
     }
 }
