@@ -1,4 +1,8 @@
 
+# Untracked files:
+
+ApiClient/SupportingFiles/GoogleService-Info.plist
+
 # Created by https://www.gitignore.io/api/xcode,swift,carthage,cocoapods,objective-c
 
 ### Carthage ###
