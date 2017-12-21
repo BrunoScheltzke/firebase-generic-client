@@ -22,7 +22,7 @@ protocol FirebaseCrudable {
     var ref: DatabaseReference { get }
     var tableName: String { get }
     
-    func save(_ model: Model, completion: @escaping (Result<Void>) -> Void?)
+    func save(_ model: Model, completion: ((Result<Void>) -> Void)?)
     func fetch(byId id: String, completion: @escaping(Result<Model>) -> Void)
     func ifNeeded(model: Model, completion: @escaping (Result<Void>) -> Void)
     func map(model: Model) -> [String: Any]
@@ -46,13 +46,13 @@ extension FirebaseCrudable {
         return ["\(tableName)/\(model.firebaseId)": model.toDictionary()]
     }
     
-    func save(_ model: Model, completion: @escaping (Result<Void>) -> Void?) {
+    func save(_ model: Model, completion: ((Result<Void>) -> Void)?) {
         ref.updateChildValues(map(model: model)) { (error, _) in
             guard error == nil else {
-                completion(.error(error!))
+                completion?(.error(error!))
                 return
             }
-            completion(.success(()))
+            completion?(.success(()))
         }
     }
     
