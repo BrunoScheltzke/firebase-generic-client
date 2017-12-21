@@ -11,4 +11,5 @@ import Foundation
 protocol Makeable: class {
     func toDictionary() -> [String: Any]
     static func make(from dictionary: [String: Any]) -> Self
+    func update(other: Self)
 }

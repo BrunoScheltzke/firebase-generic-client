@@ -21,6 +21,13 @@ extension {{ type.name }}: Makeable {
 		return dict
 	}
 
+	func update(other: {{ type.name }}) {
+		self.isCompleted = true
+		{% for variable in type.variables %}
+		self.{{ variable.name }} = other.{{ variable.name }}
+		{% endfor %}
+	}
+
 	static func make(from dictionary: [String: Any]) -> {{ type.name }} {
 		let object = self.init()
 		object.firebaseId = dictionary[{{ type.name }}Keys.firebaseId] as! String

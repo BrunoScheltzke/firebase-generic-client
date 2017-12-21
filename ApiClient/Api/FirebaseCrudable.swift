@@ -24,6 +24,7 @@ protocol FirebaseCrudable {
     
     func save(_ model: Model, completion: @escaping (Result<Void>) -> Void?)
     func fetch(byId id: String, completion: @escaping(Result<Model>) -> Void)
+    func ifNeeded(model: Model, completion: @escaping (Result<Void>) -> Void)
     func map(model: Model) -> [String: Any]
 }
 
@@ -66,6 +67,23 @@ extension FirebaseCrudable {
             }
         }) { (error) in
             completion(.error(error))
+        }
+    }
+    
+    func ifNeeded(model: Model, completion: @escaping (Result<Void>) -> Void) {
+        guard !model.isCompleted else {
+            completion(.success(()))
+            return
+        }
+        
+        fetch(byId: model.firebaseId) { (result) in
+            switch result {
+            case .error(let error):
+                completion(.error(error))
+            case .success(let fetchedModel):
+                model.update(other: fetchedModel)
+                completion(.success(()))
+            }
         }
     }
     

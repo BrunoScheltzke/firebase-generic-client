@@ -18,6 +18,14 @@ extension Person: Makeable {
 		return dict
 	}
 
+	func update(other: Person) {
+		self.isCompleted = true
+		self.firebaseId = other.firebaseId
+		self.isCompleted = other.isCompleted
+		self.name = other.name
+		self.lastName = other.lastName
+	}
+
 	static func make(from dictionary: [String: Any]) -> Person {
 		let object = self.init()
 		object.firebaseId = dictionary[PersonKeys.firebaseId] as! String
