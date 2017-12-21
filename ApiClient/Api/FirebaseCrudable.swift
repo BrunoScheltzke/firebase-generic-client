@@ -56,6 +56,38 @@ extension FirebaseCrudable {
     }
     
     func fetch(byId id: String, completion: @escaping(Result<Model>) -> Void) {
+        ref.child(tableName).child(id).observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.hasChildren(){
+                let dict = self.convertToDictionary(fromDataSnapshot: snapshot)
+                let model = Model.make(from: dict)
+                completion(.success(model))
+            } else {
+                completion(.error(ManagerError.notFound("No value found from \(id) tableName: \(self.tableName)")))
+            }
+        }) { (error) in
+            completion(.error(error))
+        }
+    }
+    
+    func convertToDictionary(fromDataSnapshot dataSnapshot: DataSnapshot?) -> [String: Any] {
+        guard let snapshot = dataSnapshot else{
+            return [:]
+        }
         
+        var dictionary = snapshot.value as? [String: Any] ?? [:]
+        dictionary["id"] = snapshot.key
+        
+        return dictionary
+    }
+}
+
+enum ManagerError: Error{
+    case notFound(String)
+    
+    var localizedDescription: String {
+        switch self {
+        case .notFound(let message):
+            return message
+        }
     }
 }
