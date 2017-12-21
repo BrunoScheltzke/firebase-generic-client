@@ -19,8 +19,8 @@ extension Person: Makeable {
 	}
 
 	static func make(from dictionary: [String: Any]) -> Person {
-		var object = self.init()
-		object.firebaseId = dictionary[PersonKeys.firebaseId] as? String
+		let object = self.init()
+		object.firebaseId = dictionary[PersonKeys.firebaseId] as! String
 		object.name = dictionary[PersonKeys.name] as! String
 		object.lastName = dictionary[PersonKeys.lastName] as! String
 		return object

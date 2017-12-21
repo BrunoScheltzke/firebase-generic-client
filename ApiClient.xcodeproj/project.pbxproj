@@ -16,6 +16,7 @@
 		84DE6D821FE3389200B70C54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DE6D801FE3389200B70C54 /* Main.storyboard */; };
 		84DE6D841FE3389200B70C54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84DE6D831FE3389200B70C54 /* Assets.xcassets */; };
 		84DE6D871FE3389200B70C54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DE6D851FE3389200B70C54 /* LaunchScreen.storyboard */; };
+		84EBF4871FEBDC6A000E9E4C /* FirebaseCrudable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBF4861FEBDC6A000E9E4C /* FirebaseCrudable.swift */; };
 		C82496DCBA622ACE375BBB9F /* Pods_ApiClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A1C6C7897AB3271BB61FD1 /* Pods_ApiClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		84DE6D831FE3389200B70C54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84DE6D861FE3389200B70C54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84DE6D881FE3389200B70C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84EBF4861FEBDC6A000E9E4C /* FirebaseCrudable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCrudable.swift; sourceTree = "<group>"; };
 		A9A1C6C7897AB3271BB61FD1 /* Pods_ApiClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ApiClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,8 +105,17 @@
 				84DE6D851FE3389200B70C54 /* LaunchScreen.storyboard */,
 				84DE6D881FE3389200B70C54 /* Info.plist */,
 				842C24A01FE8744800007E71 /* Model */,
+				84EBF4881FEBDC70000E9E4C /* Api */,
 			);
 			path = ApiClient;
+			sourceTree = "<group>";
+		};
+		84EBF4881FEBDC70000E9E4C /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				84EBF4861FEBDC6A000E9E4C /* FirebaseCrudable.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 		E355C7B981BCE2EF768BFB95 /* Pods */ = {
@@ -265,6 +276,7 @@
 			files = (
 				842C24A21FE8752400007E71 /* Person.swift in Sources */,
 				842C249F1FE8743600007E71 /* Fetchable.swift in Sources */,
+				84EBF4871FEBDC6A000E9E4C /* FirebaseCrudable.swift in Sources */,
 				84DE6D7F1FE3389200B70C54 /* ViewController.swift in Sources */,
 				8456E06E1FE990350009C95F /* Firebase.generated.swift in Sources */,
 				84DE6D7D1FE3389200B70C54 /* AppDelegate.swift in Sources */,

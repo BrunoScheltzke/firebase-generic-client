@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Person: FirebaseFetchable {
+final class Person: FirebaseFetchable {
     // sourcery: ignore
-    var firebaseId: String? = ""
+    var firebaseId: String = ""
     // sourcery: ignore
     var isCompleted: Bool = false
     var name: String = ""
@@ -21,7 +21,5 @@ struct Person: FirebaseFetchable {
         self.lastName = lastName
     }
     
-    init() {
-        
-    }
+    init() {}
 }

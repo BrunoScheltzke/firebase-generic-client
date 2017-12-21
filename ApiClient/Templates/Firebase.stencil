@@ -22,8 +22,8 @@ extension {{ type.name }}: Makeable {
 	}
 
 	static func make(from dictionary: [String: Any]) -> {{ type.name }} {
-		var object = self.init()
-		object.firebaseId = dictionary[{{ type.name }}Keys.firebaseId] as? String
+		let object = self.init()
+		object.firebaseId = dictionary[{{ type.name }}Keys.firebaseId] as! String
 		{% for variable in type.variables %}
 		{% ifnot variable.annotations.ignore %}
 		object.{{ variable.name }} = dictionary[{{ type.name }}Keys.{{ variable.name }}] as! {{ variable.typeName }}
