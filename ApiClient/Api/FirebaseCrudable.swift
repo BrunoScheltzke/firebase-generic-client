@@ -19,7 +19,7 @@ typealias FirebaseModel = FirebaseFetchable & Makeable
 protocol FirebaseCrudable {
     associatedtype Model: FirebaseModel
     
-    var ref: DatabaseReference! { get }
+    var ref: DatabaseReference { get }
     var tableName: String { get }
     
     func save(_ model: Model, completion: @escaping (Result<Void>) -> Void?)

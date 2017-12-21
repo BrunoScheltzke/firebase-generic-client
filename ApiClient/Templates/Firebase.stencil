@@ -32,4 +32,11 @@ extension {{ type.name }}: Makeable {
 		return object
 	}
 }
+
+final class {{ type.name }}Manager: FirebaseCrudable {
+	typealias Model = {{ type.name }}
+    
+    static let shared = {{ type.name }}Manager()
+}
+
 {% endfor %}

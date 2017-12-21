@@ -26,3 +26,9 @@ extension Person: Makeable {
 		return object
 	}
 }
+
+final class PersonManager: FirebaseCrudable {
+	typealias Model = Person
+    static let shared = PersonManager()
+}
+
