@@ -14,20 +14,25 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let bruno = Person(name: "Bruno", lastName: "Scheltzke")
-        let brunoDict = bruno.toDictionary()
-        let brunoMadeFromDict = Person.make(from: brunoDict)
+        let fido = Dog(name: "Fido")
         
-        print(bruno)
-        print(brunoDict)
-        print(brunoMadeFromDict)
+        bruno.dog = fido
         
-        PersonManager.shared.save(bruno) { (result) in
+        DogManager.shared.save(fido) { (result) in
             if case .success(_) = result {
-                PersonManager.shared.fetch(byId: bruno.firebaseId, completion: { (result) in
-                    if case .success(let personFetched) = result {
-                        print(personFetched.name)
+                PersonManager.shared.save(bruno) { (result) in
+                    if case .success(_) = result {
+                        PersonManager.shared.fetch(byId: bruno.firebaseId, completion: { (result) in
+                            if case .success(let personFetched) = result {
+                                DogManager.shared.ifNeeded(model: personFetched.dog, completion: { (result) in
+                                    if case .success(_) = result {
+                                        print(personFetched.dog.name)
+                                    }
+                                })
+                            }
+                        })
                     }
-                })
+                }
             }
         }
     }

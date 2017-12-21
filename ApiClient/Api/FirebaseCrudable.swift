@@ -61,6 +61,7 @@ extension FirebaseCrudable {
             if snapshot.hasChildren(){
                 let dict = self.convertToDictionary(fromDataSnapshot: snapshot)
                 let model = Model.make(from: dict)
+                model.isCompleted = true
                 completion(.success(model))
             } else {
                 completion(.error(ManagerError.notFound("No value found from \(id) tableName: \(self.tableName)")))

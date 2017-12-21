@@ -18,6 +18,7 @@
 		84DE6D871FE3389200B70C54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DE6D851FE3389200B70C54 /* LaunchScreen.storyboard */; };
 		84EBF4871FEBDC6A000E9E4C /* FirebaseCrudable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBF4861FEBDC6A000E9E4C /* FirebaseCrudable.swift */; };
 		84EBF48E1FEC200A000E9E4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84EBF48D1FEC200A000E9E4C /* GoogleService-Info.plist */; };
+		84EBF4901FEC2166000E9E4C /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBF48F1FEC2166000E9E4C /* Dog.swift */; };
 		C82496DCBA622ACE375BBB9F /* Pods_ApiClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A1C6C7897AB3271BB61FD1 /* Pods_ApiClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		84DE6D881FE3389200B70C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84EBF4861FEBDC6A000E9E4C /* FirebaseCrudable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCrudable.swift; sourceTree = "<group>"; };
 		84EBF48D1FEC200A000E9E4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84EBF48F1FEC2166000E9E4C /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		A9A1C6C7897AB3271BB61FD1 /* Pods_ApiClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ApiClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 				842C249E1FE8743600007E71 /* Fetchable.swift */,
 				842C24A11FE8752400007E71 /* Person.swift */,
 				8456E0681FE964C30009C95F /* Makeable.swift */,
+				84EBF48F1FEC2166000E9E4C /* Dog.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				84DE6D7F1FE3389200B70C54 /* ViewController.swift in Sources */,
 				8456E06E1FE990350009C95F /* Firebase.generated.swift in Sources */,
 				84DE6D7D1FE3389200B70C54 /* AppDelegate.swift in Sources */,
+				84EBF4901FEC2166000E9E4C /* Dog.swift in Sources */,
 				8456E0691FE964C30009C95F /* Makeable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

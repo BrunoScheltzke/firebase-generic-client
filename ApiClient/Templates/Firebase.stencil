@@ -13,8 +13,12 @@ extension {{ type.name }}: Makeable {
 	func toDictionary() -> [String: Any] {
 		var dict: [String: Any] = [:]
 		{% for variable in type.variables %}
+		{% if variable|implements:"FirebaseFetchable" %}
+		dict[{{ type.name }}Keys.{{ variable.name }}] = {{ variable.name }}.firebaseId
+		{% else %}	
 		{% ifnot variable.annotations.ignore %}
 		dict[{{ type.name }}Keys.{{ variable.name }}] = {{ variable.name }}
+		{% endif %}	
 		{% endif %}	
 		{% endfor %}
 		dict[{{ type.name }}Keys.firebaseId] = self.firebaseId
@@ -24,17 +28,23 @@ extension {{ type.name }}: Makeable {
 	func update(other: {{ type.name }}) {
 		self.isCompleted = true
 		{% for variable in type.variables %}
+		{% ifnot variable.annotations.ignore %}
 		self.{{ variable.name }} = other.{{ variable.name }}
+		{% endif %}
 		{% endfor %}
 	}
 
 	static func make(from dictionary: [String: Any]) -> {{ type.name }} {
 		let object = self.init()
 		object.firebaseId = dictionary[{{ type.name }}Keys.firebaseId] as! String
-		{% for variable in type.variables %}
-		{% ifnot variable.annotations.ignore %}
+		{% for variable in type.variables|instance|!annotated:"ignore" %}
+		{% if variable|implements:"FirebaseFetchable" %}
+		let element = {{ variable.typeName }}()
+		element.firebaseId = dictionary[{{ type.name }}Keys.{{ variable.name }}] as! String
+		object.{{ variable.name }} = element
+		{% else %}
 		object.{{ variable.name }} = dictionary[{{ type.name }}Keys.{{ variable.name }}] as! {{ variable.typeName }}
-		{% endif %}	
+		{% endif %}
 		{% endfor %}
 		return object
 	}
