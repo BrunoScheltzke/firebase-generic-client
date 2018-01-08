@@ -22,9 +22,9 @@ protocol FirebaseCrudable {
     var ref: DatabaseReference { get }
     var tableName: String { get }
     
-    func save(_ model: Model, completion: ((Result<Void>) -> Void)?)
+    func save(_ model: inout Model, completion: ((Result<Void>) -> Void)?)
     func fetch(byId id: String, completion: @escaping(Result<Model>) -> Void)
-    func ifNeeded(model: Model, completion: @escaping (Result<Void>) -> Void)
+    func ifNeeded(_ model: Model, completion: @escaping (Result<Model?>) -> Void)
     func map(model: Model) -> [String: Any]
 }
 
@@ -38,15 +38,15 @@ extension FirebaseCrudable {
     }
     
     func map(model: Model) -> [String: Any] {
+        return ["\(tableName)/\(model.firebaseId)": model.toDictionary()]
+    }
+    
+    func save(_ model: inout Model, completion: ((Result<Void>) -> Void)?) {
         if model.firebaseId == "" {
             let child = ref.child(tableName).childByAutoId()
             model.firebaseId = child.key
         }
         
-        return ["\(tableName)/\(model.firebaseId)": model.toDictionary()]
-    }
-    
-    func save(_ model: Model, completion: ((Result<Void>) -> Void)?) {
         ref.updateChildValues(map(model: model)) { (error, _) in
             guard error == nil else {
                 completion?(.error(error!))
@@ -61,7 +61,6 @@ extension FirebaseCrudable {
             if snapshot.hasChildren(){
                 let dict = self.convertToDictionary(fromDataSnapshot: snapshot)
                 let model = Model.make(from: dict)
-                model.isCompleted = true
                 completion(.success(model))
             } else {
                 completion(.error(ManagerError.notFound("No value found from \(id) tableName: \(self.tableName)")))
@@ -71,19 +70,17 @@ extension FirebaseCrudable {
         }
     }
     
-    func ifNeeded(model: Model, completion: @escaping (Result<Void>) -> Void) {
+    func ifNeeded(_ model: Model, completion: @escaping (Result<Model?>) -> Void) {
         guard !model.isCompleted else {
-            completion(.success(()))
+            completion(.success(nil))
             return
         }
-        
         fetch(byId: model.firebaseId) { (result) in
             switch result {
             case .error(let error):
                 completion(.error(error))
             case .success(let fetchedModel):
-                model.update(other: fetchedModel)
-                completion(.success(()))
+                completion(.success(fetchedModel))
             }
         }
     }
@@ -94,7 +91,7 @@ extension FirebaseCrudable {
         }
         
         var dictionary = snapshot.value as? [String: Any] ?? [:]
-        dictionary["id"] = snapshot.key
+        dictionary["firebaseId"] = snapshot.key
         
         return dictionary
     }

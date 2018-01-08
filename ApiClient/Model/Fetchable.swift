@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol FirebaseFetchable: class {
+protocol FirebaseFetchable {
     var firebaseId: String { get set }
     var isCompleted: Bool { get set }
 }

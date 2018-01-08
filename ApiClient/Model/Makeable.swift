@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol Makeable: class {
+protocol Makeable {
     func toDictionary() -> [String: Any]
     static func make(from dictionary: [String: Any]) -> Self
-    func update(other: Self)
+    mutating func update(other: Self)
 }

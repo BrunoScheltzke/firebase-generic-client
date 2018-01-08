@@ -24,7 +24,11 @@ extension {{ type.name }}: Makeable {
 		dict[{{ type.name }}Keys.firebaseId] = self.firebaseId
 		return dict
 	}
-
+{% if type|struct %} 
+	mutating func update(other: {{ type.name }}) {
+		self = other
+	}
+{% else %}
 	func update(other: {{ type.name }}) {
 		self.isCompleted = true
 		{% for variable in type.variables %}
@@ -33,15 +37,28 @@ extension {{ type.name }}: Makeable {
 		{% endif %}
 		{% endfor %}
 	}
+{% endif %}
 
 	static func make(from dictionary: [String: Any]) -> {{ type.name }} {
+		{% if type|struct %} 
+		var object = self.init()
+		{% else %}
 		let object = self.init()
+		{% endif %}
 		object.firebaseId = dictionary[{{ type.name }}Keys.firebaseId] as! String
+		object.isCompleted = true
 		{% for variable in type.variables|instance|!annotated:"ignore" %}
 		{% if variable|implements:"FirebaseFetchable" %}
 		let element = {{ variable.typeName }}()
 		element.firebaseId = dictionary[{{ type.name }}Keys.{{ variable.name }}] as! String
 		object.{{ variable.name }} = element
+		{% elif variable.isArray and variable.typeName.array.elementType.implements.FirebaseFetchable %}
+		let {{ variable.name }}Refs = dictionary[{{ type.name }}Keys.{{ variable.name }}] as! [String: Bool]
+		object.{{ variable.name }} = {{ variable.name }}Refs.map { (reference) in
+			let element = {{ variable.typeName.array.elementType.name }}()
+			element.firebaseId = reference.key
+			return element
+		}
 		{% else %}
 		object.{{ variable.name }} = dictionary[{{ type.name }}Keys.{{ variable.name }}] as! {{ variable.typeName }}
 		{% endif %}
@@ -49,6 +66,16 @@ extension {{ type.name }}: Makeable {
 		return object
 	}
 }
+
+{% if type|struct %} 
+extension {{ type.name }} {
+	init() {
+	{% for variable in type.variables %}
+	self.{{ variable.name }} = {{ variable.typeName }}()
+	{% endfor %}
+	}
+}
+{% endif %}
 
 final class {{ type.name }}Manager: FirebaseCrudable {
 	typealias Model = {{ type.name }}
