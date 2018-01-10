@@ -2,6 +2,9 @@
 // DO NOT EDIT
 
 
+
+// ------- Dog related generated code ----------------- //
+
 struct DogKeys {
 	static let tableName = "Dog"
 	static let firebaseId = "firebaseId"
@@ -34,6 +37,11 @@ final class DogManager: FirebaseCrudable {
 	typealias Model = Dog
     static let shared = DogManager()
 }
+
+// ------- End of Dog code ----------------- //
+
+
+// ------- Person related generated code ----------------- //
 
 struct PersonKeys {
 	static let tableName = "Person"
@@ -77,6 +85,11 @@ final class PersonManager: FirebaseCrudable {
 	typealias Model = Person
     static let shared = PersonManager()
 }
+
+// ------- End of Person code ----------------- //
+
+
+// ------- PetShop related generated code ----------------- //
 
 struct PetShopKeys {
 	static let tableName = "PetShop"
@@ -125,4 +138,6 @@ final class PetShopManager: FirebaseCrudable {
 	typealias Model = PetShop
     static let shared = PetShopManager()
 }
+
+// ------- End of PetShop code ----------------- //
 

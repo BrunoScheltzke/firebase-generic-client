@@ -1,4 +1,7 @@
 {% for type in types.implementing.FirebaseFetchable %}
+
+// ------- {{ type.name }} related generated code ----------------- //
+
 struct {{ type.name }}Keys {
 	static let tableName = "{{ type.name }}"
 	static let firebaseId = "firebaseId"
@@ -39,10 +42,15 @@ extension {{ type.name }}: Makeable {
 	}
 {% endif %}
 
+{% if type|struct %} 
 	static func make(from dictionary: [String: Any]) -> {{ type.name }} {
-		{% if type|struct %} 
 		var object = self.init()
 		{% else %}
+		{% if type.isFinal %}
+	static func make(from dictionary: [String: Any]) -> {{ type.name }} {
+		{% else %}
+	static func make(from dictionary: [String: Any]) -> Self {
+		{% endif %}
 		let object = self.init()
 		{% endif %}
 		object.firebaseId = dictionary[{{ type.name }}Keys.firebaseId] as! String
@@ -82,5 +90,7 @@ final class {{ type.name }}Manager: FirebaseCrudable {
     
     static let shared = {{ type.name }}Manager()
 }
+
+// ------- End of {{ type.name }} code ----------------- //
 
 {% endfor %}
