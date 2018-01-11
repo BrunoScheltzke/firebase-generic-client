@@ -11,12 +11,27 @@ import UIKit
 class PetInfoViewController: UITableViewController {
     var pet: Pet!
     
+    var editPetSegueIdentifier = "editPetSegue"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "\(pet.name)'s info"
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         setupPetInfo()
+    }
+    
+    @IBAction func editButtonClicked(_ sender: Any) {
+        performSegue(withIdentifier: editPetSegueIdentifier, sender: pet)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? CreatePetViewController, let pet = sender as? Pet {
+           destination.isNewPet = false
+            destination.pet = pet
+        }
     }
     
     func setupPetInfo() {
