@@ -15,12 +15,7 @@ final class Person: FirebaseFetchable {
     var isCompleted: Bool = false
     var name: String = ""
     var lastName: String = ""
-    var dog: Dog = Dog()
-    
-    init(name: String, lastName: String) {
-        self.name = name
-        self.lastName = lastName
-    }
+    var pets: [Pet] = [Pet]()
     
     init() {}
 }

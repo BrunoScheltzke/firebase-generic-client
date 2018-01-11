@@ -18,6 +18,10 @@ extension {{ type.name }}: Makeable {
 		{% for variable in type.variables %}
 		{% if variable|implements:"FirebaseFetchable" %}
 		dict[{{ type.name }}Keys.{{ variable.name }}] = {{ variable.name }}.firebaseId
+		{% elif variable.isArray and variable.typeName.array.elementType.implements.FirebaseFetchable %}
+		var {{ variable.name }}Refs: [String: Bool] = [:]
+		{{ variable.name }}.forEach{ {{ variable.name }}Refs[$0.firebaseId] = true }
+		dict[{{ type.name }}Keys.{{ variable.name }}] = {{ variable.name }}Refs
 		{% else %}	
 		{% ifnot variable.annotations.ignore %}
 		dict[{{ type.name }}Keys.{{ variable.name }}] = {{ variable.name }}
@@ -61,9 +65,9 @@ extension {{ type.name }}: Makeable {
 		element.firebaseId = dictionary[{{ type.name }}Keys.{{ variable.name }}] as! String
 		object.{{ variable.name }} = element
 		{% elif variable.isArray and variable.typeName.array.elementType.implements.FirebaseFetchable %}
-		let {{ variable.name }}Refs = dictionary[{{ type.name }}Keys.{{ variable.name }}] as! [String: Bool]
+		let {{ variable.name }}Refs = dictionary[{{ type.name }}Keys.{{ variable.name }}] as? [String: Bool] ?? [:]
 		object.{{ variable.name }} = {{ variable.name }}Refs.map { (reference) in
-			let element = {{ variable.typeName.array.elementType.name }}()
+			var element = {{ variable.typeName.array.elementType.name }}()
 			element.firebaseId = reference.key
 			return element
 		}

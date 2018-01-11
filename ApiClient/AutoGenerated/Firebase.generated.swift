@@ -3,44 +3,6 @@
 
 
 
-// ------- Dog related generated code ----------------- //
-
-struct DogKeys {
-	static let tableName = "Dog"
-	static let firebaseId = "firebaseId"
-	static let name = "name"
-}
-
-extension Dog: Makeable {
-	func toDictionary() -> [String: Any] {
-		var dict: [String: Any] = [:]
-		dict[DogKeys.name] = name
-		dict[DogKeys.firebaseId] = self.firebaseId
-		return dict
-	}
-	func update(other: Dog) {
-		self.isCompleted = true
-		self.name = other.name
-	}
-
-	static func make(from dictionary: [String: Any]) -> Dog {
-		let object = self.init()
-		object.firebaseId = dictionary[DogKeys.firebaseId] as! String
-		object.isCompleted = true
-		object.name = dictionary[DogKeys.name] as! String
-		return object
-	}
-}
-
-
-final class DogManager: FirebaseCrudable {
-	typealias Model = Dog
-    static let shared = DogManager()
-}
-
-// ------- End of Dog code ----------------- //
-
-
 // ------- Person related generated code ----------------- //
 
 struct PersonKeys {
@@ -48,7 +10,7 @@ struct PersonKeys {
 	static let firebaseId = "firebaseId"
 	static let name = "name"
 	static let lastName = "lastName"
-	static let dog = "dog"
+	static let pets = "pets"
 }
 
 extension Person: Makeable {
@@ -56,7 +18,9 @@ extension Person: Makeable {
 		var dict: [String: Any] = [:]
 		dict[PersonKeys.name] = name
 		dict[PersonKeys.lastName] = lastName
-		dict[PersonKeys.dog] = dog.firebaseId
+		var petsRefs: [String: Bool] = [:]
+		pets.forEach{ petsRefs[$0.firebaseId] = true }
+		dict[PersonKeys.pets] = petsRefs
 		dict[PersonKeys.firebaseId] = self.firebaseId
 		return dict
 	}
@@ -64,7 +28,7 @@ extension Person: Makeable {
 		self.isCompleted = true
 		self.name = other.name
 		self.lastName = other.lastName
-		self.dog = other.dog
+		self.pets = other.pets
 	}
 
 	static func make(from dictionary: [String: Any]) -> Person {
@@ -73,9 +37,12 @@ extension Person: Makeable {
 		object.isCompleted = true
 		object.name = dictionary[PersonKeys.name] as! String
 		object.lastName = dictionary[PersonKeys.lastName] as! String
-		let element = Dog()
-		element.firebaseId = dictionary[PersonKeys.dog] as! String
-		object.dog = element
+		let petsRefs = dictionary[PersonKeys.pets] as? [String: Bool] ?? [:]
+		object.pets = petsRefs.map { (reference) in
+			var element = Pet()
+			element.firebaseId = reference.key
+			return element
+		}
 		return object
 	}
 }
@@ -89,55 +56,48 @@ final class PersonManager: FirebaseCrudable {
 // ------- End of Person code ----------------- //
 
 
-// ------- PetShop related generated code ----------------- //
+// ------- Pet related generated code ----------------- //
 
-struct PetShopKeys {
-	static let tableName = "PetShop"
+struct PetKeys {
+	static let tableName = "Pet"
 	static let firebaseId = "firebaseId"
 	static let name = "name"
-	static let clients = "clients"
+	static let age = "age"
+	static let petType = "petType"
 }
 
-extension PetShop: Makeable {
+extension Pet: Makeable {
 	func toDictionary() -> [String: Any] {
 		var dict: [String: Any] = [:]
-		dict[PetShopKeys.name] = name
-		dict[PetShopKeys.clients] = clients
-		dict[PetShopKeys.firebaseId] = self.firebaseId
+		dict[PetKeys.name] = name
+		dict[PetKeys.age] = age
+		dict[PetKeys.petType] = petType
+		dict[PetKeys.firebaseId] = self.firebaseId
 		return dict
 	}
-	mutating func update(other: PetShop) {
-		self = other
+	func update(other: Pet) {
+		self.isCompleted = true
+		self.name = other.name
+		self.age = other.age
+		self.petType = other.petType
 	}
 
-	static func make(from dictionary: [String: Any]) -> PetShop {
-		var object = self.init()
-		object.firebaseId = dictionary[PetShopKeys.firebaseId] as! String
+	static func make(from dictionary: [String: Any]) -> Pet {
+		let object = self.init()
+		object.firebaseId = dictionary[PetKeys.firebaseId] as! String
 		object.isCompleted = true
-		object.name = dictionary[PetShopKeys.name] as! String
-		let clientsRefs = dictionary[PetShopKeys.clients] as! [String: Bool]
-		object.clients = clientsRefs.map { (reference) in
-			let element = Person()
-			element.firebaseId = reference.key
-			return element
-		}
+		object.name = dictionary[PetKeys.name] as! String
+		object.age = dictionary[PetKeys.age] as! Int
+		object.petType = dictionary[PetKeys.petType] as! String
 		return object
 	}
 }
 
-extension PetShop {
-	init() {
-	self.firebaseId = String()
-	self.isCompleted = Bool()
-	self.name = String()
-	self.clients = [Person]()
-	}
+
+final class PetManager: FirebaseCrudable {
+	typealias Model = Pet
+    static let shared = PetManager()
 }
 
-final class PetShopManager: FirebaseCrudable {
-	typealias Model = PetShop
-    static let shared = PetShopManager()
-}
-
-// ------- End of PetShop code ----------------- //
+// ------- End of Pet code ----------------- //
 

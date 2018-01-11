@@ -71,16 +71,18 @@ extension FirebaseCrudable {
     }
     
     func ifNeeded(_ model: Model, completion: @escaping (Result<Model?>) -> Void) {
-        guard !model.isCompleted else {
+        var modelRef = model
+        guard !modelRef.isCompleted else {
             completion(.success(nil))
             return
         }
-        fetch(byId: model.firebaseId) { (result) in
+        fetch(byId: modelRef.firebaseId) { (result) in
             switch result {
             case .error(let error):
                 completion(.error(error))
             case .success(let fetchedModel):
-                completion(.success(fetchedModel))
+                modelRef.update(other: fetchedModel)
+                completion(.success(modelRef))
             }
         }
     }
