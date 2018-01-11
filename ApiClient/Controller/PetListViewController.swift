@@ -23,14 +23,8 @@ class PetListViewController: UIViewController {
         
         //this should be a decent login, ignore it :)
         LoginManager.shared.login { (result) in
-            if case .success() = result {
-                for pet in LoginManager.shared.currentUser.pets {
-                    PetManager.shared.ifNeeded(pet, completion: { (result) in
-                        if case .success(_) = result {
-                            self.tableOfPets.reloadData()
-                        }
-                    })
-                }
+            DispatchQueue.main.async {
+                self.tableOfPets.reloadData()
             }
         }
     }
@@ -54,7 +48,7 @@ extension PetListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableOfPets.dequeueReusableCell(withIdentifier: reusableCell)!
         
-        cell.textLabel?.text = LoginManager.shared.currentUser.pets[indexPath.row].name
+        cell.detailTextLabel?.text = LoginManager.shared.currentUser.pets[indexPath.row].firebaseId
         
         return cell
     }

@@ -15,12 +15,16 @@ class PetInfoViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.title = "\(pet.name)'s info"
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setupPetInfo()
+        PetManager.shared.ifNeeded(pet) { (result) in
+            if case .error(let error) = result {
+                print(error)
+            } else {
+                self.setupPetInfo()
+            }
+        }
     }
     
     @IBAction func editButtonClicked(_ sender: Any) {
@@ -35,6 +39,8 @@ class PetInfoViewController: UITableViewController {
     }
     
     func setupPetInfo() {
+        navigationItem.title = "\(pet.name)'s info"
+        
         DispatchQueue.main.async {
             let nameCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
             nameCell?.detailTextLabel?.text = self.pet.name
