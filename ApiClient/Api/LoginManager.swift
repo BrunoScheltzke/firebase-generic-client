@@ -13,12 +13,27 @@ class LoginManager {
     
     var currentUser: Person = Person()
     
-    func login(completion: @escaping (Result<Person?>) -> Void) {
-        currentUser.firebaseId = "-L2_tYi3OLfrZW9eTCa7"
+    func login(completion: @escaping (Result<Void>) -> Void) {
+        currentUser.firebaseId = "id-generation-should-be-firebases-job"
         
         //this should be a decent login, ignore it :)
-        PersonManager.shared.ifNeeded(currentUser) { (result) in
-            completion(result)
+        PersonManager.shared.fetch(byId: "id-generation-should-be-firebases-job") { (result) in
+            switch result {
+            case .success(let personFetched):
+                self.currentUser = personFetched
+                completion(.success(()))
+            case .error(let error):
+                if case ManagerError.notFound(_) = error {
+                    self.currentUser.name = "Will"
+                    self.currentUser.lastName = "Smith"
+                    
+                    PersonManager.shared.save(&self.currentUser, completion: { (result) in
+                        completion(result)
+                    })
+                } else {
+                    completion(.error(error))
+                }
+            }
         }
     }
 }

@@ -15,8 +15,6 @@ class PetListViewController: UIViewController {
     
     let petInfoSegue = "petInfoSegue"
     
-    var currentUser: Person = LoginManager.shared.currentUser
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,8 +23,8 @@ class PetListViewController: UIViewController {
         
         //this should be a decent login, ignore it :)
         LoginManager.shared.login { (result) in
-            if case .success(_) = result {
-                for pet in self.currentUser.pets {
+            if case .success() = result {
+                for pet in LoginManager.shared.currentUser.pets {
                     PetManager.shared.ifNeeded(pet, completion: { (result) in
                         if case .success(_) = result {
                             self.tableOfPets.reloadData()
@@ -50,22 +48,22 @@ class PetListViewController: UIViewController {
 
 extension PetListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentUser.pets.count
+        return LoginManager.shared.currentUser.pets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableOfPets.dequeueReusableCell(withIdentifier: reusableCell)!
         
-        cell.textLabel?.text = currentUser.pets[indexPath.row].name
+        cell.textLabel?.text = LoginManager.shared.currentUser.pets[indexPath.row].name
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            PetManager.shared.remove(currentUser.pets[indexPath.row], completion: nil)
-            currentUser.pets.remove(at: indexPath.row)
-            PersonManager.shared.save(&currentUser, completion: nil)
+            PetManager.shared.remove(LoginManager.shared.currentUser.pets[indexPath.row], completion: nil)
+            LoginManager.shared.currentUser.pets.remove(at: indexPath.row)
+            PersonManager.shared.save(&LoginManager.shared.currentUser, completion: nil)
             
             tableOfPets.deleteRows(at: [indexPath], with: .fade)
         }
@@ -74,7 +72,7 @@ extension PetListViewController: UITableViewDataSource {
 
 extension PetListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let pet = currentUser.pets[indexPath.row]
+        let pet = LoginManager.shared.currentUser.pets[indexPath.row]
         performSegue(withIdentifier: petInfoSegue, sender: pet)
     }
 }
