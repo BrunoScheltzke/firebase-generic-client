@@ -60,6 +60,16 @@ extension PetListViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            PetManager.shared.remove(currentUser.pets[indexPath.row], completion: nil)
+            currentUser.pets.remove(at: indexPath.row)
+            PersonManager.shared.save(&currentUser, completion: nil)
+            
+            tableOfPets.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }
 
 extension PetListViewController: UITableViewDelegate {

@@ -25,6 +25,7 @@ protocol FirebaseCrudable {
     func save(_ model: inout Model, completion: ((Result<Void>) -> Void)?)
     func fetch(byId id: String, completion: @escaping(Result<Model>) -> Void)
     func ifNeeded(_ model: Model, completion: @escaping (Result<Model?>) -> Void)
+    func remove(_ model: Model, completion: ((Result<Void>) -> Void)?)
     func map(model: Model) -> [String: Any]
 }
 
@@ -96,6 +97,16 @@ extension FirebaseCrudable {
         dictionary["firebaseId"] = snapshot.key
         
         return dictionary
+    }
+    
+    func remove(_ model: Model, completion: ((Result<Void>) -> Void)?) {
+        ref.child(tableName).child(model.firebaseId).removeValue { (error, _) in
+            if let error = error {
+                completion?(.error(error))
+            } else {
+                completion?(.success(()))
+            }
+        }
     }
 }
 
