@@ -15,3 +15,5 @@ end
 ```
 
 You will need to setup Firebase. Go to the firebase website and get your plist file as well as the dashboard setup. Very easy and quick. After that, download the plist file and attach it to the project. If you need help, check out their tutorial https://firebase.google.com/docs/ios/setup?authuser=0.
+
+Check out the medium post on how everything works - https://medium.com/@brunofonten/swift-generics-and-metaprogramming-for-the-easiest-to-use-client-side-app-8f5ba98771b0
