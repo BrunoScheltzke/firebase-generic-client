@@ -8,15 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		842C249F1FE8743600007E71 /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C249E1FE8743600007E71 /* Fetchable.swift */; };
-		842C24A21FE8752400007E71 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C24A11FE8752400007E71 /* Person.swift */; };
 		8456E0691FE964C30009C95F /* Makeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456E0681FE964C30009C95F /* Makeable.swift */; };
 		8456E06E1FE990350009C95F /* Firebase.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456E06D1FE990350009C95F /* Firebase.generated.swift */; };
-		8456EEEB20068F7D002F2EEB /* PetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456EEEA20068F7D002F2EEB /* PetListViewController.swift */; };
-		8456EEF320069556002F2EEB /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456EEF220069556002F2EEB /* Pet.swift */; };
-		846D03112007B8FA00DC54D9 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D03102007B8FA00DC54D9 /* LoginManager.swift */; };
-		846D03132007C43E00DC54D9 /* PetInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D03122007C43E00DC54D9 /* PetInfoViewController.swift */; };
-		846D03152007C76B00DC54D9 /* CreatePetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D03142007C76B00DC54D9 /* CreatePetViewController.swift */; };
 		846D03172007CA7D00DC54D9 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D03162007CA7D00DC54D9 /* UIViewControllerExtension.swift */; };
+		84BBC00120716F6B00E1A1D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBC00020716F6B00E1A1D3 /* ViewController.swift */; };
 		84DE6D7D1FE3389200B70C54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DE6D7C1FE3389200B70C54 /* AppDelegate.swift */; };
 		84DE6D821FE3389200B70C54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DE6D801FE3389200B70C54 /* Main.storyboard */; };
 		84DE6D841FE3389200B70C54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84DE6D831FE3389200B70C54 /* Assets.xcassets */; };
@@ -30,15 +25,10 @@
 		433F1571682394678C7D2342 /* Pods-ApiClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApiClient/Pods-ApiClient.debug.xcconfig"; sourceTree = "<group>"; };
 		62999F4C3E5C8E145EB3DC38 /* Pods-ApiClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApiClient/Pods-ApiClient.release.xcconfig"; sourceTree = "<group>"; };
 		842C249E1FE8743600007E71 /* Fetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetchable.swift; sourceTree = "<group>"; };
-		842C24A11FE8752400007E71 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		8456E0681FE964C30009C95F /* Makeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Makeable.swift; sourceTree = "<group>"; };
 		8456E06D1FE990350009C95F /* Firebase.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.generated.swift; sourceTree = "<group>"; };
-		8456EEEA20068F7D002F2EEB /* PetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetListViewController.swift; sourceTree = "<group>"; };
-		8456EEF220069556002F2EEB /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
-		846D03102007B8FA00DC54D9 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
-		846D03122007C43E00DC54D9 /* PetInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfoViewController.swift; sourceTree = "<group>"; };
-		846D03142007C76B00DC54D9 /* CreatePetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePetViewController.swift; sourceTree = "<group>"; };
 		846D03162007CA7D00DC54D9 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		84BBC00020716F6B00E1A1D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		84DE6D791FE3389200B70C54 /* ApiClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApiClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DE6D7C1FE3389200B70C54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84DE6D811FE3389200B70C54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,9 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				842C249E1FE8743600007E71 /* Fetchable.swift */,
-				842C24A11FE8752400007E71 /* Person.swift */,
 				8456E0681FE964C30009C95F /* Makeable.swift */,
-				8456EEF220069556002F2EEB /* Pet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -92,9 +80,7 @@
 		8456EEEC20068F92002F2EEB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8456EEEA20068F7D002F2EEB /* PetListViewController.swift */,
-				846D03122007C43E00DC54D9 /* PetInfoViewController.swift */,
-				846D03142007C76B00DC54D9 /* CreatePetViewController.swift */,
+				84BBC00020716F6B00E1A1D3 /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -134,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				84EBF4861FEBDC6A000E9E4C /* FirebaseCrudable.swift */,
-				846D03102007B8FA00DC54D9 /* LoginManager.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -309,17 +294,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				846D03152007C76B00DC54D9 /* CreatePetViewController.swift in Sources */,
-				842C24A21FE8752400007E71 /* Person.swift in Sources */,
 				842C249F1FE8743600007E71 /* Fetchable.swift in Sources */,
 				84EBF4871FEBDC6A000E9E4C /* FirebaseCrudable.swift in Sources */,
 				8456E06E1FE990350009C95F /* Firebase.generated.swift in Sources */,
-				846D03112007B8FA00DC54D9 /* LoginManager.swift in Sources */,
 				84DE6D7D1FE3389200B70C54 /* AppDelegate.swift in Sources */,
-				8456EEEB20068F7D002F2EEB /* PetListViewController.swift in Sources */,
+				84BBC00120716F6B00E1A1D3 /* ViewController.swift in Sources */,
 				846D03172007CA7D00DC54D9 /* UIViewControllerExtension.swift in Sources */,
-				846D03132007C43E00DC54D9 /* PetInfoViewController.swift in Sources */,
-				8456EEF320069556002F2EEB /* Pet.swift in Sources */,
 				8456E0691FE964C30009C95F /* Makeable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
