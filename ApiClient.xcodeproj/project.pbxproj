@@ -18,13 +18,11 @@
 		84DE6D871FE3389200B70C54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DE6D851FE3389200B70C54 /* LaunchScreen.storyboard */; };
 		84EBF4871FEBDC6A000E9E4C /* FirebaseCrudable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBF4861FEBDC6A000E9E4C /* FirebaseCrudable.swift */; };
 		84EBF48E1FEC200A000E9E4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84EBF48D1FEC200A000E9E4C /* GoogleService-Info.plist */; };
-		E2C669E934F930D0A6DAAAF4 /* Pods_ApiClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420774CB8770B606410374BE /* Pods_ApiClient.framework */; };
+		9B6290A7ED4272888788EA2F /* Pods_ApiClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95077B053C440AA524A0BF90 /* Pods_ApiClient.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		420774CB8770B606410374BE /* Pods_ApiClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ApiClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5013333514D4F78846AC2556 /* Pods-ApiClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApiClient/Pods-ApiClient.debug.xcconfig"; sourceTree = "<group>"; };
-		6CC405FA2E78AD9844AF3656 /* Pods-ApiClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApiClient/Pods-ApiClient.release.xcconfig"; sourceTree = "<group>"; };
+		51A6B1F3F81F36B31642F849 /* Pods-ApiClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApiClient/Pods-ApiClient.release.xcconfig"; sourceTree = "<group>"; };
 		842C249E1FE8743600007E71 /* Fetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetchable.swift; sourceTree = "<group>"; };
 		8456E0681FE964C30009C95F /* Makeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Makeable.swift; sourceTree = "<group>"; };
 		8456E06D1FE990350009C95F /* Firebase.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.generated.swift; sourceTree = "<group>"; };
@@ -38,6 +36,8 @@
 		84DE6D881FE3389200B70C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84EBF4861FEBDC6A000E9E4C /* FirebaseCrudable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCrudable.swift; sourceTree = "<group>"; };
 		84EBF48D1FEC200A000E9E4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		95077B053C440AA524A0BF90 /* Pods_ApiClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ApiClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB69895EC7D601465E5C2820 /* Pods-ApiClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApiClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApiClient/Pods-ApiClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,22 +45,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2C669E934F930D0A6DAAAF4 /* Pods_ApiClient.framework in Frameworks */,
+				9B6290A7ED4272888788EA2F /* Pods_ApiClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A04428499731EC60C8AA7C6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5013333514D4F78846AC2556 /* Pods-ApiClient.debug.xcconfig */,
-				6CC405FA2E78AD9844AF3656 /* Pods-ApiClient.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		842C24A01FE8744800007E71 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,8 +82,8 @@
 			children = (
 				84DE6D7B1FE3389200B70C54 /* ApiClient */,
 				84DE6D7A1FE3389200B70C54 /* Products */,
-				2A04428499731EC60C8AA7C6 /* Pods */,
-				8BF11FDDDE08EE3EE2DE9ED1 /* Frameworks */,
+				E93D271D87FCEE32C60B69EE /* Pods */,
+				87AEB323E885583BE7782406 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,12 +129,21 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		8BF11FDDDE08EE3EE2DE9ED1 /* Frameworks */ = {
+		87AEB323E885583BE7782406 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				420774CB8770B606410374BE /* Pods_ApiClient.framework */,
+				95077B053C440AA524A0BF90 /* Pods_ApiClient.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E93D271D87FCEE32C60B69EE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BB69895EC7D601465E5C2820 /* Pods-ApiClient.debug.xcconfig */,
+				51A6B1F3F81F36B31642F849 /* Pods-ApiClient.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,12 +153,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84DE6D8B1FE3389300B70C54 /* Build configuration list for PBXNativeTarget "ApiClient" */;
 			buildPhases = (
-				C865E57EBB5E3A1F274439C9 /* [CP] Check Pods Manifest.lock */,
+				BD19B6E3B68D3C08ECC99AE5 /* [CP] Check Pods Manifest.lock */,
 				84DE6D751FE3389200B70C54 /* Sources */,
 				84DE6D761FE3389200B70C54 /* Frameworks */,
 				84DE6D771FE3389200B70C54 /* Resources */,
 				842C24A31FE877CB00007E71 /* ShellScript */,
-				3121053024167F288BFFBB56 /* [CP] Embed Pods Frameworks */,
+				4AD28600FEBA820BB8DC29F2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -218,7 +218,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3121053024167F288BFFBB56 /* [CP] Embed Pods Frameworks */ = {
+		4AD28600FEBA820BB8DC29F2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -251,7 +251,7 @@
 			shellPath = /bin/sh;
 			shellScript = "$PODS_ROOT/Sourcery/bin/sourcery --sources ./ApiClient --templates ./ApiClient/Templates/ --output ./ApiClient/AutoGenerated";
 		};
-		C865E57EBB5E3A1F274439C9 /* [CP] Check Pods Manifest.lock */ = {
+		BD19B6E3B68D3C08ECC99AE5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -417,7 +417,7 @@
 		};
 		84DE6D8C1FE3389300B70C54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5013333514D4F78846AC2556 /* Pods-ApiClient.debug.xcconfig */;
+			baseConfigurationReference = BB69895EC7D601465E5C2820 /* Pods-ApiClient.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -427,6 +427,7 @@
 				INFOPLIST_FILE = ApiClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scheltzke.ApiClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -436,7 +437,7 @@
 		};
 		84DE6D8D1FE3389300B70C54 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6CC405FA2E78AD9844AF3656 /* Pods-ApiClient.release.xcconfig */;
+			baseConfigurationReference = 51A6B1F3F81F36B31642F849 /* Pods-ApiClient.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -446,6 +447,7 @@
 				INFOPLIST_FILE = ApiClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scheltzke.ApiClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

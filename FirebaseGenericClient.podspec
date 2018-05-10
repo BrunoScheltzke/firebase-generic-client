@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = 'FirebaseGenericClient'
-  s.version          = '0.1.0'
-  s.summary          = 'All the work needed for a simple client side app'
+  s.version          = '0.1.01'
+  s.summary          = 'All the work needed for a simple firebase-based client side app'
  
   s.description      = <<-DESC
 This app generates custom methods for your models to be able to crud into Firebase
