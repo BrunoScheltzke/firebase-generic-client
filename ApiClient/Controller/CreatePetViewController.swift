@@ -57,18 +57,19 @@ class CreatePetViewController: UIViewController {
         pet.name = name
         pet.age = age
         pet.petType = petType
-        
-        PetManager.shared.save(&pet) { (result) in
-            if case .success(_) = result {
-                if self.isNewPet {
-                    LoginManager.shared.currentUser.pets.append(self.pet)
-                    PersonManager.shared.save(&LoginManager.shared.currentUser, completion: { (result) in
-                        self.navigationController?.popViewController(animated: true)
-                    })
-                } else {
-                    self.navigationController?.popViewController(animated: true)
-                }
-            }
-        }
+
+        //TODO: REMOVE COMMENTS
+//        PetManager.shared.save(&pet) { (result) in
+//            if case .success(_) = result {
+//                if self.isNewPet {
+//                    LoginManager.shared.currentUser.pets.append(self.pet)
+//                    PersonManager.shared.save(&LoginManager.shared.currentUser, completion: { (result) in
+//                        self.navigationController?.popViewController(animated: true)
+//                    })
+//                } else {
+//                    self.navigationController?.popViewController(animated: true)
+//                }
+//            }
+//        }
     }
 }

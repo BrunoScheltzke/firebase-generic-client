@@ -18,13 +18,14 @@ class PetInfoViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        PetManager.shared.ifNeeded(pet) { (result) in
-            if case .error(let error) = result {
-                print(error)
-            } else {
-                self.setupPetInfo()
-            }
-        }
+        //TODO: REMOVE COMMENTS
+//        PetManager.shared.ifNeeded(pet) { (result) in
+//            if case .error(let error) = result {
+//                print(error)
+//            } else {
+//                self.setupPetInfo()
+//            }
+//        }
     }
     
     @IBAction func editButtonClicked(_ sender: Any) {

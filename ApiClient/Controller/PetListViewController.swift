@@ -22,7 +22,7 @@ class PetListViewController: UIViewController {
         tableOfPets.dataSource = self
         
         //this should be a decent login, ignore it :)
-        LoginManager.shared.login { (result) in
+        LoginManager.shared.login { () in
             DispatchQueue.main.async {
                 self.tableOfPets.reloadData()
             }
@@ -55,9 +55,10 @@ extension PetListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            PetManager.shared.remove(LoginManager.shared.currentUser.pets[indexPath.row], completion: nil)
+            //TODO: REMOVE COMMENTS
+            //PetManager.shared.remove(LoginManager.shared.currentUser.pets[indexPath.row], completion: nil)
             LoginManager.shared.currentUser.pets.remove(at: indexPath.row)
-            PersonManager.shared.save(&LoginManager.shared.currentUser, completion: nil)
+            //PersonManager.shared.save(&LoginManager.shared.currentUser, completion: nil)
             
             tableOfPets.deleteRows(at: [indexPath], with: .fade)
         }

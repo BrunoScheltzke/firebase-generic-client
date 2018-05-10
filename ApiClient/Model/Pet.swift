@@ -8,7 +8,8 @@
 
 import Foundation
 
-final class Pet: FirebaseFetchable {
+//TODO: CONFORM CLASS WITH FirebaseFetchable
+final class Pet {
     // sourcery: ignore
     var firebaseId: String = ""
     // sourcery: ignore
