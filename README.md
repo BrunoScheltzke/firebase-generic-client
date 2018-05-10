@@ -1,4 +1,4 @@
-# firebase-generic-api-client
+# firebase-generic-client
 
 An app to control your pets
 
