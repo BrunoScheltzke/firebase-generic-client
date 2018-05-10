@@ -8,9 +8,7 @@
 
 import Foundation
 
-//TODO: CONFORM CLASS WITH FirebaseFetchable
-
-final class Person {
+final class Person: FirebaseFetchable {
     // sourcery: ignore
     var firebaseId: String = ""
     // sourcery: ignore

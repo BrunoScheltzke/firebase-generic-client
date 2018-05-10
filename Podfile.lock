@@ -1,60 +1,34 @@
 PODS:
-  - Firebase/Core (4.0.4):
-    - FirebaseAnalytics (= 4.0.2)
-    - FirebaseCore (= 4.0.4)
-  - Firebase/Database (4.0.4):
-    - Firebase/Core
-    - FirebaseDatabase (= 4.0.0)
-  - FirebaseAnalytics (4.0.2):
-    - FirebaseCore (~> 4.0)
-    - FirebaseInstanceID (~> 2.0)
+  - FirebaseCore (5.0.0):
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-  - FirebaseCore (4.0.4):
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-    - nanopb (~> 0.3)
-  - FirebaseDatabase (4.0.0):
-    - FirebaseAnalytics (~> 4.0)
-  - FirebaseGenericClient (0.1.0):
-    - Firebase/Database (~> 4.0.0)
-    - Sourcery (~> 0.13.0)
-  - FirebaseInstanceID (2.0.10):
-    - FirebaseCore (~> 4.0)
+  - FirebaseDatabase (5.0.0):
+    - FirebaseCore (~> 5.0)
+    - leveldb-library (~> 1.18)
   - GoogleToolboxForMac/Defines (2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
-  - nanopb (0.3.8):
-    - nanopb/decode (= 0.3.8)
-    - nanopb/encode (= 0.3.8)
-  - nanopb/decode (0.3.8)
-  - nanopb/encode (0.3.8)
-  - Sourcery (0.13.0)
+  - leveldb-library (1.20)
+  - Sourcery (0.13.1)
 
 DEPENDENCIES:
-  - FirebaseGenericClient
+  - FirebaseDatabase
+  - Sourcery
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Firebase
-    - FirebaseAnalytics
     - FirebaseCore
     - FirebaseDatabase
-    - FirebaseGenericClient
-    - FirebaseInstanceID
     - GoogleToolboxForMac
-    - nanopb
+    - leveldb-library
     - Sourcery
 
 SPEC CHECKSUMS:
-  Firebase: 1492bf04e1b73a7353b4fb2cf5a20bac9692f341
-  FirebaseAnalytics: ad41720e3e67fc63fbe3d2948d3e26932a8de311
-  FirebaseCore: cfc042628ef9f20debe09c0eb683135fcd404cb4
-  FirebaseDatabase: d829b3a8c3e2ac7a16773c5df226966b0805dfc2
-  FirebaseGenericClient: 0e0f491f676118bd283ca151153b5b8b989df160
-  FirebaseInstanceID: 8d20d890d65c917f9f7d9950b6e10a760ad34321
+  FirebaseCore: e46e4babb9de298fb2f736958edcc6da1dc60d73
+  FirebaseDatabase: 697eb53e5b4fe7cd4fa8756c1f82a9fca011345f
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
-  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  Sourcery: d78d3b68aa565a7194e57ccd6995c1368fda9cb0
+  leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  Sourcery: 9ef51b8777516f204d82996441f293813158d0d7
 
-PODFILE CHECKSUM: a2c9a4ea739aaf55e0624efed1729db7aecf6dc4
+PODFILE CHECKSUM: 587e6609e0455bf9fdca0694797a567755b6d662
 
 COCOAPODS: 1.5.0

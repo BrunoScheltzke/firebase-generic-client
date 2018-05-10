@@ -56,9 +56,9 @@ extension PetListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             //TODO: REMOVE COMMENTS
-            //PetManager.shared.remove(LoginManager.shared.currentUser.pets[indexPath.row], completion: nil)
+            PetManager.shared.remove(LoginManager.shared.currentUser.pets[indexPath.row], completion: nil)
             LoginManager.shared.currentUser.pets.remove(at: indexPath.row)
-            //PersonManager.shared.save(&LoginManager.shared.currentUser, completion: nil)
+            PersonManager.shared.save(&LoginManager.shared.currentUser, completion: nil)
             
             tableOfPets.deleteRows(at: [indexPath], with: .fade)
         }
