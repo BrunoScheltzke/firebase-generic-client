@@ -1,19 +1,24 @@
 # firebase-generic-api-client
 
-An app to control your pets
+[![License](https://img.shields.io/cocoapods/l/FirebaseGenericClient.svg?style=flat)](https://cocoapods.org/pods/FirebaseGenericClient)
 
-This project demonstrates how to use metaprogramming and swift generics to create a client-side iOS app avoiding all the boilerplate of a usual client-side aplication.
+This project demonstrates how to use metaprogramming and swift generics to create a client-side iOS app avoiding all the boilerplate of a usual client-side aplication. It is a simple app that manages your pets with all CRUD operations.
 
-Make sure you have the following in your pod file
-```
-target 'Your_Project_Name' do
-  use_frameworks!
-# Pods for Your_Project_Name
-    pod 'Sourcery'
-    pod 'Firebase/Database'
-end
-```
+## Installation
 
-You will need to setup Firebase. Go to the firebase website and get your plist file as well as the dashboard setup. Very easy and quick. After that, download the plist file and attach it to the project. If you need help, check out their tutorial https://firebase.google.com/docs/ios/setup?authuser=0.
+To run this example project, clone the repo, and run `pod install`
 
-Check out the medium post on how everything works - https://medium.com/@brunofonten/swift-generics-and-metaprogramming-for-the-easiest-to-use-client-side-app-8f5ba98771b0
+## Requirements
+
+You will need to setup Firebase. Go to the [Firebase Website](https://console.firebase.google.com/u/0/) and get your plist file (GoogleService-Info.plist) as well as the dashboard setup. Very easy and quick. After that, download the plist file and attach it to the project. If you need help, check out their tutorial https://firebase.google.com/docs/ios/setup?authuser=0.
+
+## Author
+
+BrunoScheltzke, brunofonten@gmail.com
+
+Check out the [Medium post](https://medium.com/@brunofonten/swift-generics-and-metaprogramming-for-the-easiest-to-use-client-side-app-8f5ba98771b0) on how everything works
+
+
+## License
+
+firebase-generic-api-client is available under the MIT license. See the LICENSE file for more info.
