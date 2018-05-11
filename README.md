@@ -3,6 +3,9 @@
 [![License](https://img.shields.io/cocoapods/l/FirebaseGenericClient.svg?style=flat)](https://cocoapods.org/pods/FirebaseGenericClient)
 
 This project demonstrates how to use metaprogramming and swift generics to create a client-side iOS app avoiding all the boilerplate of a usual client-side aplication. It is a simple app that manages your pets with all CRUD operations.
+It is just a matter of creating a type, conforming it to my FirebaseFetchable protocol, building it and start CRUDing objects.
+
+![Alt Text](https://github.com/BrunoScheltzke/firebase-generic-client/blob/master/FirebaseGenericClientGif.gif)
 
 ## Installation
 
