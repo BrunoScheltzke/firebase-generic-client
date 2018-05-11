@@ -1,4 +1,4 @@
-# firebase-generic-api-client
+# firebase-generic-client
 
 [![License](https://img.shields.io/cocoapods/l/FirebaseGenericClient.svg?style=flat)](https://cocoapods.org/pods/FirebaseGenericClient)
 
